@@ -22,10 +22,15 @@
         })
     };
 
+    $scope.login = function() {
+      $http.post('/auth_api/login/', { username: 'user1', password: 'user12345678'})
+    };
+
     $scope.data = [];
-    $http.get('/scrumboard/lists/').then(function(response) {
-      $scope.data = response.data;
-    })
-  
+    $http.get('/scrumboard/lists/').then(
+      function(response) {
+        $scope.data = response.data;
+      }
+    );
   }
 }());
