@@ -6,9 +6,9 @@
     ['ngRoute'])
     .controller(
       'ScrumboardController',
-      ['$scope', '$http', ScrumboardController]);
+      ['$scope', '$http', 'Login', ScrumboardController]);
 
-  function ScrumboardController($scope, $http, $location) {
+  function ScrumboardController($scope, $http, Login) {
     $scope.add = function (list, title) {
       var card = {
         card_list: list.id,
@@ -23,12 +23,8 @@
         })
     };
 
-    $scope.logout = function() {
-      $http.get('/auth_api/logout/')
-        .then(function() {
-          $location.url('/login');
-        });
-    }
+    Login.redirectIfNotLoggedIn();
+    $scope.logout = Login.logout;
 
     $scope.data = [];
     $http.get('/scrumboard/lists/').then(
