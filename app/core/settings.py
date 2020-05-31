@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'scrumboard',
-    'auth_api'
+    'auth_api',
+    'frontend'
 ]
 
 MIDDLEWARE = [

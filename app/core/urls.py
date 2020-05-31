@@ -24,4 +24,5 @@ urlpatterns = [
         template_name="home.html"))),
     path('scrumboard/', include('scrumboard.urls')),
     path('auth_api/', include('auth_api.urls')),
+    path('fe/', include('frontend.urls')),
 ]
